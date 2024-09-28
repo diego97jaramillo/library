@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthorModule } from './author/author.module';
+import { Book } from './book/entities/book.entity';
+import { BookModule } from './book/book.module';
 
 @Module({
   imports: [
@@ -19,7 +22,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
-  })]
+  }),
+    BookModule,
+    AuthorModule]
 
 })
 export class AppModule {}
