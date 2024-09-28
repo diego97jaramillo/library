@@ -1,27 +1,29 @@
 import { Transform } from "class-transformer"
-import { IsNotEmpty, IsNumber, IsString, IsUUID } from "class-validator"
+import { IsDate, IsNotEmpty, IsNumber, IsString, IsUUID } from "class-validator"
 import { Author } from "src/author/entities/author.entity"
 import { Tgenre } from "src/common/types/type"
 
 export class CreateBookDto {
 
     @IsNotEmpty()
-    @Transform(({value}) => value ? new Date(value) : null)
+    @Transform(({value}) => new Date(value))
+    @IsDate()
     publicationDate: Date
 
     @IsNotEmpty()
     @IsNumber()
-    Quantity: number
+    quantity: number
 
     @IsNotEmpty()
     @IsString()
-    Genre: Tgenre
+    genre: Tgenre
 
     @IsNotEmpty()
     @IsString()
-    name: string
+    title: string
 
     @IsNotEmpty()
     @IsUUID()
+    @IsString()
     author: Author
 }
