@@ -3,7 +3,10 @@ import { BookService } from './book.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { Roldecorator } from 'src/common/decorators/role.decorator';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags("books")
 @Controller('book')
 export class BookController {
   constructor(private readonly bookService: BookService) {}

@@ -2,12 +2,14 @@ import { Controller, Get, Post, Body, Delete, Param, ParseUUIDPipe, HttpExceptio
 import { AuthorService } from './author.service';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { MissingDeleteDateColumnError } from 'typeorm';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("author")
 @Controller('author')
 export class AuthorController {
   constructor(private readonly authorService: AuthorService) {}
 
-  
+
   @Post()
   createOneAuthor(@Body() createAuthorDto: CreateAuthorDto) {
     try {
