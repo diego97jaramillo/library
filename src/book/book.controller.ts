@@ -14,7 +14,7 @@ export class BookController {
   createOneBook(@Body() createBookDto: CreateBookDto) {
 
     try {
-      return this.bookService.createBook(createBookDto);
+      return this.bookService.createOne(createBookDto);
     } catch (error) {
       throw new InternalServerErrorException(error.message)
     }
@@ -31,16 +31,16 @@ export class BookController {
 
   @Get(':id')
   findOneBook(@Param('id') id: string) {
-    return this.bookService.findOne(+id);
+    return this.bookService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-    return this.bookService.update(+id, updateBookDto);
+  updateBook(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
+    return this.bookService.updateOne(id, updateBookDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.bookService.remove(+id);
+  removeBook(@Param('id') id: string) {
+    return this.bookService.deleteOne(id);
   }
 }

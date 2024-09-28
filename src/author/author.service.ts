@@ -29,4 +29,8 @@ export class AuthorService {
   deleteAuthor(id:string) {
     return this.authorRepository.delete(id)
   }
+
+  async findOneAuthor(id: string) {
+    return await this.authorRepository.findOne({where: {id}})
+  }
 }

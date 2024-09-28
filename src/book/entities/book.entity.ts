@@ -15,6 +15,9 @@ export class Book {
     @Column("text")
     quantity: number
 
+    @Column("date")
+    publicationDate: Date
+
     @ManyToOne(() => Author, author => author.books)
     author: Author;
 }

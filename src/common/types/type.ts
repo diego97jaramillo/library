@@ -1,1 +1,1 @@
-export type Tgenre = "Humor" | "Action" | "Horror" | "Thriller" | "Novel"
+export type Tgenre = "Humor" | "Action" | "Horror" | "Thriller" | "Novel" | "Fiction"
